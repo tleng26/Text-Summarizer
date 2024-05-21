@@ -28,5 +28,6 @@ For inference, we construct separate models for the encoder and decoder. The enc
 To use the Text Summarizer ML Program:
 1. Clone the repository: git clone https://github.com/your-username/Text-Summarizer-ML-Model.git
 2. Install required dependencies: pip install -r requirements.txt
-3. Run the program: python summarizer_model.py runserver
-4. Follow prompts to interact with program!
+3. Download Reviews.csv: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
+4. Run the program: python summarizer_model.py runserver
+5. Follow prompts to interact with program!
