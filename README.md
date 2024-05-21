@@ -1,4 +1,4 @@
-# Text Summarization Machine Learning Model
+# Text Summarizer Machine Learning Model
 This GitHub project is dedicated to implementing a many-to-many sequence model using abstractive text summarization techniques. Our goal is to generate concise and informative summaries of product reviews. The model, designed to handle large datasets, will initially be trained and evaluated on the first 100,000 rows from a list of Amazon reviews. By integrating the Attention mechanism, the model will not only focus on specific keywords but also ensure the overall context of the reviews is preserved, enhancing the quality of the generated summaries.
 
 ## Dataset
