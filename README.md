@@ -1,5 +1,5 @@
 # Text Summarizer Machine Learning Model
-This GitHub project is dedicated to implementing a many-to-many sequence model using abstractive text summarization techniques. Our goal is to generate concise and informative summaries of product reviews. The model, designed to handle large datasets, will initially be trained and evaluated on the first 100,000 rows from a list of Amazon reviews. By integrating the Attention mechanism, the model will not only focus on specific keywords but also ensure the overall context of the reviews is preserved, enhancing the quality of the generated summaries.
+This GitHub project is dedicated to implementing a many-to-many sequence model using abstractive text summarization techniques. Our goal is to generate concise and informative summaries of academic literature, enhancing readability and interpretation for students. The model, designed to handle large datasets, will initially be trained and evaluated on the first 100,000 rows from a list of Amazon reviews. By integrating the Attention mechanism, the model will not only focus on specific keywords but also ensure the overall context of the reviews is preserved, enhancing the quality of the generated summaries.
 
 ## Dataset
 We use the Amazon Fine Food Reviews dataset, which contains 500,000 reviews. For our purposes, we have extracted the first 100,000 rows to train and test our model. The dataset provides a rich source of textual data with both reviews and their corresponding summaries. Due to GitHub's file size limitations, the dataset can be accessed via Kaggle: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews. The dataset structure includes columns such as Id, ProductId, UserId, ProfileName, HelpfulnessNumerator, HelpfulnessDenominator, Score, Time, Summary, and Text.
@@ -22,7 +22,7 @@ For inference, we construct separate models for the encoder and decoder. The enc
 
 ## Future Features
 1. Implementing real-time summarization capabilities where the model can generate summaries on-the-fly for streaming data or live user inputs could be a valuable addition. This would involve optimizing the model for low-latency inference and possibly deploying it in a scalable cloud environment to handle real-time requests.
-2. Developing a user-friendly interface or an API for the summarization model would make it more accessible for end-users and developers. This could include a web-based dashboard where users can input text and receive summaries or an API that developers can integrate into their applications to leverage the summarization capabilities.
+2. Developing a user-friendly interface or an API for the summarization model would make it more accessible for students and developers. This could include a web-based dashboard where users can input text and receive summaries or an API that developers can integrate into their applications to leverage the summarization capabilities.
 
 ## Usage
 To use the Text Summarizer ML Program:
