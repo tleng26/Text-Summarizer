@@ -1,26 +1,29 @@
 # Introduction
 This project is dedicated to implementing a many-to-many sequence model using abstractive text summarization techniques. Our goal is to generate concise and informative summaries of user reviews for a product, making product evaluation quick and easy.
 
+
+
+
 # Preprocessing
 Amazon Fine Food Reviews dataset, which provides a rich source of textual data with both reviews and their corresponding summaries. Due to GitHub's file size limitations, the dataset can be accessed via Kaggle: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews. We will be extracting the "Summary" and "Text" columns from this dataset to build our model.
 
 During preprocessing, we clean the text by removing non-alphabetic characters, numbers, and short words. We also expand contractions (e.g., "I'm" to "I am") and filter out stop words (e.g., "the", "a", "an"). Additionally, words are stemmed to their root forms to standardize the text. This step ensures that the data fed into the model is uniform and relevant, enhancing the model's ability to learn meaningful patterns.
 
+
+
+
 # Building the Model
 ### Text Vectorization
 We must tokenize the text and map each word to a unique integer because neural networks process numerical data, not text. Here's an example:
 
-Input Text: [‘what doing’, ‘how are you’, ‘good’]
-
-Tokenized Dictionary: {‘what’: 1, ‘doing’: 2, ‘how’: 3, ‘are’: 4, ‘you’: 5, ‘good’: 6}
-
-So if this is a different input sequence: [‘what are you doing’, ‘you are good’]
-
-Then this is the sequence vectorized: [[1, 4, 5, 2], [5, 4, 6]
+- Input Text: [‘what doing’, ‘how are you’, ‘good’]
+- Tokenized Dictionary: {‘what’: 1, ‘doing’: 2, ‘how’: 3, ‘are’: 4, ‘you’: 5, ‘good’: 6}
+- So if this is a different input sequence: [‘what are you doing’, ‘you are good’]
+- Then this is the sequence vectorized: [[1, 4, 5, 2], [5, 4, 6]
 
 During this process, we must ensure all input and target texts have the same length by padding them with zeros if they are shorter than the maximum length. This uniform length is necessary for efficient processing in batches and is essential for parallel processing and maintaining the structural integrity of the data during training.
 
-So if the uniform length is 5, then [[1, 4, 5, 2], [5, 4, 6]] becomes [[1, 4, 5, 2, 0], [5, 4, 6, 0, 0]].
+- So if the uniform length is 5, then [[1, 4, 5, 2], [5, 4, 6]] becomes [[1, 4, 5, 2, 0], [5, 4, 6, 0, 0]].
 
 ### Embedding
 We will use an embedding layer to transform each number in the sequence to a dense vector of fixed size. Think of each vector representing a point in some dimensional space, which means that we are representing a word using a point. Each point in space is determined by the semantic of the word, so words that are semantically similar (i.e. king, queen) will be closer to each other in this dimensional space. This allows a numerical representation of words, which will make it possible for our model to process the sequences.
@@ -42,24 +45,39 @@ After obtaining the summary from the encoder and decoder, we will pass this info
 - The attention layer looks at both the decoder’s current state (“field”) and the encoder’s outputs. From this, it decides which parts of the encoder's output are most relevant for generating the word after “field”.
 - These parts of the input paragraph are outputted into a context vector, and the dense layer takes this and combines the information with the decoder’s output (final summary) to create the probabilities of the next word.
 
-# Training the Model
+### Training the Model
 We split the dataset into training and testing sets in an 80:20 ratio. After building our model using the encoder inputs (input sequence), decoder inputs (target sequence), and decoder outputs (predicted sequences), we compile it and train it over 10 cycles using a batch size of 512 samples each cycle, using 10% of the data as validating our model. The saved model and its variables are in the "s2s" folder, and a visual of the model layers is shown in "model_plot.png".
 
-# Inference and Results
-For inference, we construct separate models for the encoder and decoder. The encoder processes the input text to generate context vectors, while the decoder uses these vectors along with the attention mechanism to generate the summary. The attention mechanism allows the decoder to focus on relevant parts of the input text dynamically, improving the quality of the generated summaries. The results demonstrate the model's ability to generate coherent and contextually accurate summaries, showcasing the effectiveness of the Seq2Seq architecture with attention for text summarization tasks.
+### Inference Model
+We will use our created model to create an inference architecture for the encoder and decoder model using the same steps and techniques we used for our original model. This inference model is used to test the new sequences for which the target sequence is not known.
+
+
+
+
+# Results
+Finally, we can predict the summary for the user input reviews. The results demonstrate the model's ability to generate coherent and contextually accurate summaries, showcasing the effectiveness of the Seq2Seq architecture with attention for text summarization tasks. Here are some examples:
+
+- **Review:** let me first say that i love sour candies, but these worms were way too sour, to the point that you can't really taste much flavor because the sourness overpowers everything. there are only 3 color combos, as seen in the picture (yellow/green, red/yellow, and orange/blue). that's right, there is NO blue/pink combo like the trolli ones, which is quite disappointing.  and even if you put the red half with the blue half, it wouldn't taste like the trolli ones either. in the case of sour worms, albanese &lt; trolli, hands down.
+- **Predicted Summary:** too sour
+
+- **Review:** I started buying the sugar free version to cut back on my sugar intake. There's a noticeable difference between the two which is as obvious as a regular coke and a diet coke. I learned to add coffee, bananas, and ice to make it taste better. I noticed that Carnation has significantly cuts back on the amount of powder in each packet; so much so it seems wasteful to continue to use the same packet.
+- **Predicted Summary:** not as good as original
+
 
 # Challenges
-- Building and training a stacked LSTM model with an attention mechanism is computationally intensive. Ensuring that the model architecture was optimized for both performance and resource usage involved a lot of experimentation with different hyperparameters, such as the number of LSTM layers and the learning rate. Balancing the depth and complexity of the model to avoid overfitting while still capturing the necessary context and dependencies in the text was a persistent challenge.
-- Evaluating the performance of a text summarization model is inherently subjective. Defining clear metrics and benchmarks for assessing the quality of generated summaries posed a challenge. Balancing between automated evaluation metrics, such as BLEU scores, and manual review to ensure the summaries were contextually accurate and coherent required a thoughtful approach.
+- Ensuring that the model architecture was optimized for both performance and resource usage involved a lot of experimentation with different hyperparameters, such as the number of LSTM layers and the learning rate. Balancing the depth and complexity of the model to avoid overfitting while still capturing the necessary context and dependencies in the text took lots of time.
+  
+- Evaluating the performance of a text summarization model is inherently subjective. Defining clear metrics and benchmarks for assessing the quality of generated summaries posed a challenge. Using manual review to ensure the summaries were contextually accurate and coherent required a thoughtful approach and standardization of judgement.
 
 # Future Features
-- Implementing real-time summarization capabilities where the model can generate summaries on-the-fly for streaming data or live user inputs could be a valuable addition. This would involve optimizing the model for low-latency inference and possibly deploying it in a scalable cloud environment to handle real-time requests.
-- Developing a user-friendly interface or an API for the summarization model would make it more accessible for students and developers. This could include a web-based dashboard where users can input text and receive summaries or an API that developers can integrate into their applications to leverage the summarization capabilities.
+- Implementing real-time summarization capabilities where the model can generate summaries on-the-fly for streaming data or live user inputs could be a valuable addition. This would involve optimizing the model for low-latency inference and deploying it in a scalable cloud environment to handle real-time requests.
+  
+- Developing a user-friendly interface or an API for the summarization model would make it more accessible for students and developers. This could include a dashboard where users can input text and receive summaries or an API that developers can integrate into their applications to leverage the summarization capabilities.
 
 # Usage
 To use the Text Summarizer ML Program:
-1. Clone the repository: git clone https://github.com/your-username/Text-Summarizer-ML-Model.git
-2. Install required dependencies: pip install -r requirements.txt
+1. Clone the repository: `git clone https://github.com/your-username/Text-Summarizer-ML-Model.git`
+2. Install required dependencies: `pip install -r requirements.txt`
 3. Download Reviews.csv: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
-4. Run the program: python summarizer_model.py runserver
+4. Run the program: `python summarizer_model.py runserver`
 5. Follow prompts to interact with program!
