@@ -58,10 +58,12 @@ We will use our created model to create an inference architecture for the encode
 Finally, we can predict the summary for the user input reviews. The results demonstrate the model's ability to generate coherent and contextually accurate summaries, showcasing the effectiveness of the Seq2Seq architecture with attention for text summarization tasks. Here are some examples:
 
 - **Review:** let me first say that i love sour candies, but these worms were way too sour, to the point that you can't really taste much flavor because the sourness overpowers everything. there are only 3 color combos, as seen in the picture (yellow/green, red/yellow, and orange/blue). that's right, there is NO blue/pink combo like the trolli ones, which is quite disappointing.  and even if you put the red half with the blue half, it wouldn't taste like the trolli ones either. in the case of sour worms, albanese &lt; trolli, hands down.
-- **Predicted Summary:** too sour
+
+  **Predicted Summary:** too sour
 
 - **Review:** I started buying the sugar free version to cut back on my sugar intake. There's a noticeable difference between the two which is as obvious as a regular coke and a diet coke. I learned to add coffee, bananas, and ice to make it taste better. I noticed that Carnation has significantly cuts back on the amount of powder in each packet; so much so it seems wasteful to continue to use the same packet.
-- **Predicted Summary:** not as good as original
+
+  **Predicted Summary:** not as good as original
 
 
 # Challenges
