@@ -5,7 +5,7 @@ This project is dedicated to implementing a sequence-to-sequence model using abs
 
 
 ## Preprocessing
-We utilized the Amazon Fine Food Reviews dataset to train our model, focusing on the "Summary" and "Text" columns. Our preprocessing involves cleaning the text by removing non-alphabetic characters and numbers, expanding contractions, filtering out stop words, and stemming words to their roots. These steps help standardize the input, improving the model’s learning efficiency. Due to GitHub's file size limitations, the dataset can be accessed via Kaggle: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews.
+We utilized the Amazon Fine Food Reviews dataset to train our model. Our preprocessing involves cleaning the text by removing non-alphabetic characters and numbers, expanding contractions, filtering out stop words, and stemming words to their roots. These steps help standardize the input, improving the model’s learning efficiency. Due to GitHub's file size limitations, the dataset can be accessed via Kaggle: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews.
 
 
 
