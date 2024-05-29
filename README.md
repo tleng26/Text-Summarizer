@@ -83,3 +83,6 @@ To use the Text Summarizer ML Program:
 3. Download Reviews.csv: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
 4. Run the program: `python summarizer_model.py runserver`
 5. Follow prompts to interact with program!
+
+# License
+Distributed under the MIT License.
