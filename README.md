@@ -1,5 +1,5 @@
 # Text Summarizer
-This project is dedicated to implementing a many-to-many sequence model using abstractive text summarization techniques. With the rapid expansion of online shopping, we aim to streamline product evaluations by providing concise and insightful summaries of user reviews, highlighting only the notable parts of the product. This approach makes it quicker and easier for consumers to make informed decisions.
+This project is dedicated to implementing a sequence-to-sequence model using abstractive text summarization techniques. With the rapid expansion of online shopping, we aim to streamline product evaluations by providing concise and insightful summaries of user reviews, highlighting only the notable parts of the product. This approach makes it quicker and easier for consumers to make informed decisions.
 
 
 
