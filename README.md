@@ -1,5 +1,5 @@
 # Text Summarizer
-This project is dedicated to implementing a sequence-to-sequence model using abstractive text summarization techniques. With the rapid expansion of online shopping, we aim to streamline product evaluations by providing concise and insightful summaries of user reviews, highlighting only the notable parts of the product. This approach makes it quicker and easier for consumers to make informed decisions.
+This project is dedicated to implementing a sequence-to-sequence model using abstractive text summarization techniques. Our goal was to enhance the Google Chrome abstract summarization feature, designed to condense texts such as articles and papers into concise summaries that capture essential information. By integrating machine learning, we aimed to improve the accuracy and relevance of the summaries, ensuring they maintain the core meanings while eliminating extraneous details. This enhancement not only aims to streamline user experience but also to provide a more efficient tool for accessing quick, reliable summaries directly within the browser.
 
 
 
@@ -69,17 +69,19 @@ Finally, we can predict the summary for the user input reviews. The results demo
 
 
 ## Challenges
-- Ensuring that the model architecture was optimized for both performance and resource usage involved a lot of experimentation with different hyperparameters, such as the number of LSTM layers and the learning rate. Balancing the depth and complexity of the model to avoid overfitting while still capturing the necessary context and dependencies in the text took lots of time.
+- Ensuring that the model architecture was optimized for both performance and resource usage involved a lot of experimentation with different hyperparameters, such as the number of LSTM layers and the learning rate. Overfitting is still an issue with this model, as some summaries are missing key bits of information and/or are too short.
   
-- Evaluating the performance of a text summarization model is inherently subjective. Defining clear metrics and benchmarks for assessing the quality of generated summaries posed a challenge. Using manual review to ensure the summaries were contextually accurate and coherent required a thoughtful approach and standardization of judgement.
+- Evaluating the performance of a text summarization model is inherently subjective. Defining clear metrics and benchmarks for assessing the quality of generated summaries posed a challenge. We conducted an assessment by testing our model on 200 reviews, determining that approximately 157 summaries (about 80%) accurately reflected the original content based on our own evaluations.
+
+- The dataset we employed to train our model was not ideally suited for a Google Chrome summarization feature, primarily because most Amazon reviews consist of simple language and do not closely mirror the complexity of professional articles found online. Finding the perfect dataset proved challenging; we required a resource that provided enough examples of texts paired with their precise summaries. Despite its limitations, the Amazon Reviews dataset fulfilled this criterion, making it the most viable option to train our model.
 
 
 
 
-## Future Features
-- Implementing real-time summarization capabilities where the model can generate summaries on-the-fly for streaming data or live user inputs could be a valuable addition. This would involve optimizing the model for low-latency inference and deploying it in a scalable cloud environment to handle real-time requests.
-  
+## Future Additions
 - Developing a user-friendly interface or an API for the summarization model would make it more accessible for students and developers. This could include a dashboard where users can input text and receive summaries or an API that developers can integrate into their applications to leverage the summarization capabilities.
+
+- Adjusting the length of summaries to correspond with the size of the input text would significantly enhance the effectiveness of our model. We encountered challenges where some summaries were overly concise relative to the depth of information in the original texts. By implementing separate models for longer and shorter texts, we could tailor our summaries more precisely, thereby improving both their accuracy and relevance.
 
 
 
