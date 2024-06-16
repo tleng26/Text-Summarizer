@@ -46,7 +46,12 @@ After obtaining the summary from the encoder and decoder, we will pass this info
 - These parts of the input paragraph are outputted into a context vector, and the dense layer takes this and combines the information with the decoder’s output (final summary) to create the probabilities of the next word.
 
 ### Training the Model
-We split the dataset into training and testing sets in an 80:20 ratio. After building our model using the encoder inputs (input sequence), decoder inputs (target sequence), and decoder outputs (predicted sequences), we compile it and train it over 10 cycles using a batch size of 512 samples each cycle, using 10% of the data to validate our model. The saved model and its variables are in the "s2s" folder, and a visual of the model layers is shown in "model_plot.png".
+We split the dataset into training and testing sets in an 80:20 ratio. After building our model using the encoder inputs (input sequence), decoder inputs (target sequence), and decoder outputs (predicted sequences), we compile it and train it over 10 cycles using a batch size of 512 samples each cycle, using 10% of the data to validate our model. The saved model and its variables are in the "s2s" folder, and a visual of the model layers is shown in "model_plot.png", which is shown below:
+
+
+![Sample Image](model_plot.png)
+
+
 
 ### Inference Model
 We will use our trained model to create an inference architecture for the encoder and decoder model using the same steps and techniques we used for our original model. This inference model is used to test the new sequences for which the target sequence is not known.
