@@ -54,7 +54,7 @@ We split the dataset into training and testing sets in an 80:20 ratio. After bui
 
 
 ### Inference Model
-We will use our trained model to create an inference architecture for the encoder and decoder model using the same steps and techniques we used for our original model. This inference model is used to test the new sequences for which the target sequence is not known.
+We will use our trained model to create an inference architecture for the encoder and decoder model using the same steps and techniques we used for our original model. This inference model is used to test the new sequences for which the target sequence is not known. This is the model for actual user usage.
 
 
 
