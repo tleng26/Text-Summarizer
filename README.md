@@ -73,24 +73,6 @@ Finally, we can predict the summary for the user input reviews. The results demo
 
 
 
-## Challenges
-- Ensuring that the model architecture was optimized for both performance and resource usage involved a lot of experimentation with different hyperparameters, such as the number of LSTM layers and the learning rate. Overfitting is still an issue with this model, as some summaries are missing key bits of information and/or are too short.
-  
-- Evaluating the performance of a text summarization model is inherently subjective. Defining clear metrics and benchmarks for assessing the quality of generated summaries posed a challenge. We conducted an assessment by testing our model on 200 reviews, determining that approximately 157 summaries (about 80%) accurately reflected the original content based on our own evaluations.
-
-- The dataset we employed to train our model was not ideally suited for a Google Chrome summarization feature, primarily because most Amazon reviews consist of simple language and do not closely mirror the complexity of professional articles found online. Finding the perfect dataset proved challenging; we required a resource that provided enough examples of texts paired with their precise summaries. Despite its limitations, the Amazon Reviews dataset fulfilled this criterion, making it the most viable option to train our model.
-
-
-
-
-## Future Additions
-- Developing a user-friendly interface or an API for the summarization model would make it more accessible for students and developers. This could include a dashboard where users can input text and receive summaries or an API that developers can integrate into their applications to leverage the summarization capabilities.
-
-- Adjusting the length of summaries to correspond with the size of the input text would significantly enhance the effectiveness of our model. We encountered challenges where some summaries were overly concise relative to the depth of information in the original texts. By implementing separate models for longer and shorter texts, we could tailor our summaries more precisely, thereby improving both their accuracy and relevance.
-
-
-
-
 ## Usage
 To use the Text Summarizer ML Program:
 1. Clone the repository: `git clone https://github.com/your-username/Text-Summarizer-ML-Model.git`
