@@ -1,5 +1,5 @@
 # Text Summarizer
-This project is dedicated to implementing a sequence-to-sequence model using abstractive text summarization techniques. My goal was to rework the Google Chrome abstract summarization feature, designed to condense texts such as articles and papers into concise summaries that capture essential information. By integrating machine learning, I aimed to improve the accuracy and relevance of the summaries, ensuring they maintain the core meanings while eliminating extraneous details. This enhancement not only aims to streamline user experience but also to provide a more efficient tool for accessing quick, reliable summaries directly within the browser.
+This project is dedicated to implementing a sequence-to-sequence model using abstractive text summarization techniques. My goal was to condense texts such as articles and papers into concise summaries that capture essential information. By integrating machine learning, I aimed to improve the accuracy and relevance of the summaries, ensuring they maintain the core meanings while eliminating extraneous details. This enhancement not only aims to streamline user experience but also to provide a more efficient tool for accessing quick, reliable summaries directly within the browser.
 
 
 
