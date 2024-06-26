@@ -1,11 +1,11 @@
 # Text Summarizer
-This project is dedicated to implementing a sequence-to-sequence model using abstractive text summarization techniques. Our goal was to rework the Google Chrome abstract summarization feature, designed to condense texts such as articles and papers into concise summaries that capture essential information. By integrating machine learning, we aimed to improve the accuracy and relevance of the summaries, ensuring they maintain the core meanings while eliminating extraneous details. This enhancement not only aims to streamline user experience but also to provide a more efficient tool for accessing quick, reliable summaries directly within the browser.
+This project is dedicated to implementing a sequence-to-sequence model using abstractive text summarization techniques. My goal was to rework the Google Chrome abstract summarization feature, designed to condense texts such as articles and papers into concise summaries that capture essential information. By integrating machine learning, I aimed to improve the accuracy and relevance of the summaries, ensuring they maintain the core meanings while eliminating extraneous details. This enhancement not only aims to streamline user experience but also to provide a more efficient tool for accessing quick, reliable summaries directly within the browser.
 
 
 
 
 ## Preprocessing
-We utilized the Amazon Fine Food Reviews dataset to train our model. Our preprocessing involves cleaning the text by removing non-alphabetic characters and numbers, expanding contractions, filtering out stop words, and stemming words to their roots. These steps help standardize the input, improving the model’s learning efficiency.
+We utilize the Amazon Fine Food Reviews dataset to train my model. Preprocessing involves cleaning the text by removing non-alphabetic characters and numbers, expanding contractions, filtering out stop words, and stemming words to their roots. These steps help standardize the input, improving the model’s learning efficiency.
 
 Due to GitHub's file size limitations, the dataset can be accessed via Kaggle: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews.
 
